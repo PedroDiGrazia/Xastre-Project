@@ -10,9 +10,11 @@ void geraVetor(int vet[]);
 void printaVetor(int vet[]);
 void pulaLinha();
 void tiraMedia (int * vet);
+void MaiorNumero (int * vet);
 
 int main()
 {
+    srand(time(NULL))
     int vet[TAM_VET];
   
     
@@ -21,6 +23,7 @@ int main()
     printf("VETOR INICIAL"); pulaLinha();
     printaVetor(vet); pulaLinha();
     tiraMedia(vet);
+    MaiorNumero(vet);
 
     
 
@@ -67,3 +70,18 @@ void tiraMedia(int * vet)
     printf("Valor da media = %.2f", media);
 
 }
+
+void MaiorNumero(int * vet)
+{
+    int aux = 0;
+    
+    for(int i = 0; i < TAM_VET; i++)
+    {
+        if(vet[i] > aux)
+        {
+            aux = vet[i];
+        }
+    }
+    printf("\nMaior numero: %d", aux);
+}
+
