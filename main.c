@@ -11,6 +11,7 @@ void printaVetor(int vet[]);
 void pulaLinha();
 void tiraMedia (int * vet);
 void MaiorNumero (int * vet);
+void MenorNumero (int * vet);
 
 int main()
 {
@@ -24,7 +25,7 @@ int main()
     printaVetor(vet); pulaLinha();
     tiraMedia(vet);
     MaiorNumero(vet);
-
+    MenorNumero(vet);
     
 
 
@@ -85,3 +86,17 @@ void MaiorNumero(int * vet)
     printf("\nMaior numero: %d", aux);
 }
 
+void MenorNumero(int * vet)
+{
+    int aux = 0;
+    
+    for(int i = 0; i < TAM_VET; i++)
+    {
+        if(vet[i] < aux){
+            aux = vet[i];
+        }
+    }
+    
+    printf("\nMenor numero: %d \n", aux);
+
+}
