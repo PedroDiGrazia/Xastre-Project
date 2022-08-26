@@ -17,6 +17,7 @@ void troca(int * vet, int i, int j);
 int particiona(int * vet, int inicio, int fim);
 int particionaRandom(int * vet, int inicio, int fim);
 void quickSort(int * vet, int inicio, int fim);
+float calculaMediana (int * vet);
 
 int main()
 {
@@ -36,6 +37,8 @@ int main()
     printaVetor(vet);
     printf("\n\nBUBBLE SORT\n\n");
     bubbleSort(vet);
+    printf("\n");
+    calculaMediana(vet);
     
     
 
@@ -175,5 +178,35 @@ void quickSort(int * vet, int inicio, int fim)
 		quickSort(vet, inicio, pivo_indice - 1);
 		quickSort(vet, pivo_indice + 1, fim);
 	}
+}
+
+float calculaMediana (int * vet)
+{
+
+float pos1, pos2;
+
+    float res;
+
+    switch (TAM_VET % 2)
+    {
+        case 0:
+
+            pos1 = vet[TAM_VET/2 - 1];
+            pos2 = vet[TAM_VET/2];
+            pos1 = pos1 + pos2;
+
+        res = (pos1/2);
+        break;
+    
+
+        case 1: 
+
+            pos1 = vet[(TAM_VET - 1)/2];
+
+        res = pos1;
+        break;
+    }
+    
+    printf("\n\n Mediana do vetor = %.2f", res);
 }
 
