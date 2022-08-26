@@ -12,6 +12,7 @@ void pulaLinha();
 void tiraMedia (int * vet);
 void MaiorNumero (int * vet);
 void MenorNumero (int * vet);
+void bubbleSort (int * vet);
 
 int main()
 {
@@ -99,4 +100,22 @@ void MenorNumero(int * vet)
     
     printf("\nMenor numero: %d \n", aux);
 
+}
+
+void bubbleSort (int * vet) 
+{
+    int k, j, aux;
+
+    for (k = 1; k < TAM_VET; k++){
+    
+        for (j = 0; j < TAM_VET - 1; j++) {
+            
+            if (vet[j] > vet[j + 1]){
+                aux = vet[j];
+                vet[j] = vet[j + 1];
+                vet[j + 1] = aux;
+            }
+        }
+    }
+    printaVetor(vet);
 }
