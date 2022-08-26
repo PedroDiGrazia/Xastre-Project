@@ -11,6 +11,12 @@ void printaVetor(int vet[]);
 void pulaLinha();
 void tiraMedia (int * vet);
 void MaiorNumero (int * vet);
+void MenorNumero (int * vet);
+void bubbleSort (int * vet);
+void troca(int * vet, int i, int j);
+int particiona(int * vet, int inicio, int fim);
+int particionaRandom(int * vet, int inicio, int fim);
+void quickSort(int * vet, int inicio, int fim);
 
 int main()
 {
@@ -24,7 +30,13 @@ int main()
     printaVetor(vet); pulaLinha();
     tiraMedia(vet);
     MaiorNumero(vet);
-
+    MenorNumero(vet);
+    printf("\nQUICK SORT\n");
+    quickSort(vet, 0, vet[TAM_VET - 1]);
+    printaVetor(vet);
+    printf("\n\nBUBBLE SORT\n\n");
+    bubbleSort(vet);
+    
     
 
 
@@ -83,5 +95,85 @@ void MaiorNumero(int * vet)
         }
     }
     printf("\nMaior numero: %d", aux);
+}
+
+void MenorNumero(int * vet)
+{
+    int aux = 0;
+    
+    for(int i = 0; i < TAM_VET; i++)
+    {
+        if(vet[i] < aux){
+            aux = vet[i];
+        }
+    }
+    
+    printf("\nMenor numero: %d \n", aux);
+
+}
+
+void bubbleSort (int * vet) 
+{
+    int k, j, aux;
+
+    for (k = 1; k < TAM_VET; k++){
+    
+        for (j = 0; j < TAM_VET - 1; j++) {
+            
+            if (vet[j] > vet[j + 1]){
+                aux = vet[j];
+                vet[j] = vet[j + 1];
+                vet[j + 1] = aux;
+            }
+        }
+    }
+    printaVetor(vet);
+}
+
+void troca(int * vet, int i, int j){
+	int aux = vet[i];
+	vet[i] = vet[j];
+	vet[j] = aux;
+}
+
+int particiona(int * vet, int inicio, int fim)
+{
+	int pivo, pivo_indice, i;
+	
+	pivo = vet[fim];
+	pivo_indice = inicio;
+	
+	for(i = inicio; i < fim; i++)
+	{
+		if(vet[i] <= pivo)
+		{
+			troca(vet, i, pivo_indice);
+			pivo_indice++;
+		}
+	}
+	
+	troca(vet, pivo_indice, fim);
+	
+	return pivo_indice;
+}
+
+int particionaRandom(int * vet, int inicio, int fim)
+{
+	int pivo_indice = (rand() % (fim - inicio + 1)) + inicio;
+	
+	troca(vet, pivo_indice, fim);
+
+	return particiona(vet, inicio, fim);
+}
+
+void quickSort(int * vet, int inicio, int fim)
+{
+	if(inicio < fim)
+	{
+		int pivo_indice = particionaRandom(vet, inicio, fim);
+		
+		quickSort(vet, inicio, pivo_indice - 1);
+		quickSort(vet, pivo_indice + 1, fim);
+	}
 }
 
