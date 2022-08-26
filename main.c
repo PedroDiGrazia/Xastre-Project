@@ -21,7 +21,7 @@ float calculaMediana (int * vet);
 
 int main()
 {
-    srand(time(NULL))
+    srand(time(NULL));
     int vet[TAM_VET];
   
     
