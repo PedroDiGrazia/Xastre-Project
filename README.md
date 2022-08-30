@@ -6,7 +6,7 @@ Projeto desenvolvido com o intuito de demonstrar o funcionamento de um vetor com
 
 # Status do Projeto:
 
-Concluido
+Concluído
 
 # Contribuidores:
 
